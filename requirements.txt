@@ -1,0 +1,5 @@
+demoparser2>=0.41.1
+pandas>=2.0
+matplotlib>=3.7
+opencv-python>=4.8
+numpy>=1.26

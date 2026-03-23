@@ -1,0 +1,21 @@
+# Demo files (large binaries)
+*.dem
+
+# Video files (large)
+*.mp4
+
+# Parser outputs (regeneratable)
+*_engagements.csv
+*_with_acquisition.csv
+*_hitrate.png
+*_dossier.html
+
+# Debug artifacts
+dbg_*.jpg
+Figure_*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
