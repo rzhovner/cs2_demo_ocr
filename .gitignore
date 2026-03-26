@@ -10,9 +10,26 @@
 *_hitrate.png
 *_dossier.html
 
+# Session outputs (regeneratable from video)
+*_flash_calibration.png
+*_kill_times.csv
+*_kill_times_count.csv
+*_ocr_dump.csv
+
+# Generated output images and calibration artifacts
+outputs/calibration/
+outputs/*.jpg
+outputs/*.mp4
+
 # Debug artifacts
 dbg_*.jpg
 Figure_*.png
+
+# IDE / tool config
+.claude/
+
+# Data directory (large files)
+data/
 
 # Python
 __pycache__/
