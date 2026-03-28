@@ -76,6 +76,12 @@ def preprocess_dark_on_yellow(patch):
     return big
 
 
+ORANGE_HUE_LO  = 10    # OpenCV HSV hue 0-180; orange ≈ 10-25
+ORANGE_HUE_HI  = 25
+ORANGE_SAT_MIN = 150
+ORANGE_VAL_MIN = 150
+
+
 def preprocess_orange_on_dark(patch, icon_px=5):
     """
     OTSU threshold computed on digit-only columns (excluding forced-zero icon

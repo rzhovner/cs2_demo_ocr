@@ -329,6 +329,42 @@ def detect_kills_from_count(times, bot_counts):
     return np.array(kill_times)
 
 
+# ── kill-shot fusion ─────────────────────────────────────────────────────────
+
+FUSION_WINDOW_S = 0.5   # max time (s) before a bot-count kill to search for the lethal shot
+
+
+def fuse_kills_with_shots(kill_times_count, shot_times, window_s=FUSION_WINDOW_S):
+    """
+    Refine bot-count kill timestamps using shot detection for frame-accurate timing.
+
+    Bot count OCR gives reliable kill *count* but imprecise *timing* (sampled every
+    SUBSAMPLE frames).  Shot detection gives precise *timing* but can't distinguish
+    lethal from non-lethal shots.  For each bot-count kill, we find the nearest
+    preceding shot within `window_s` — that's the lethal shot, and its timestamp
+    is frame-accurate.
+
+    Falls back to the OCR timestamp if no shot is found within the window.
+    """
+    if len(shot_times) == 0:
+        return kill_times_count.copy()
+
+    fused = []
+    for kt in kill_times_count:
+        # Shots AT or BEFORE the kill detection (kill registers same tick as lethal shot,
+        # but OCR sampling delay means the count decrement appears slightly after)
+        candidates = shot_times[shot_times <= kt]
+        if len(candidates) > 0:
+            nearest = candidates[-1]
+            if kt - nearest <= window_s:
+                fused.append(nearest)
+            else:
+                fused.append(kt)  # no nearby shot — keep OCR time
+        else:
+            fused.append(kt)
+    return np.array(fused)
+
+
 def stabilize_bot_count(times, bot_counts_raw, bot_count_delta, fps_eff,
                         delta_thresh=5.0):
     """
@@ -764,6 +800,41 @@ def main():
                 validate_against_demo(kill_times_count, kill_times_truth, tolerance_s=0.25)
         else:
             print("Signal 3 (bot count): no kills detected — check ROI_BOT_COUNT or pytesseract install")
+
+        # Signal 2: shot detection (ammo delta) — for kill-shot fusion
+        ammo_delta = shot_delta.get("ammo_mag")
+        shot_times = np.array([])
+        if ammo_delta is not None and len(ammo_delta):
+            shot_times, _ = detect_shots(
+                times[:len(ammo_delta)], ammo_delta, fps_eff,
+                max_event_frames=DELTA_ROI_MAX_FRAMES.get("ammo_mag", 5))
+            print(f"\n-- Shot detection (ammo delta — Signal 2) --")
+            print(f"  {len(shot_times)} shots detected")
+
+        # Fused signal: bot count kills refined with shot timestamps
+        if len(kill_times_count) and len(shot_times):
+            kill_times_fused = fuse_kills_with_shots(kill_times_count, shot_times)
+            n_refined = np.sum(kill_times_fused != kill_times_count)
+            print(f"\n-- Fused kills (bot count + shot timing) --")
+            print(f"  {len(kill_times_fused)} kills, {n_refined} timestamps refined by shot detection")
+            for i, (kf, kc) in enumerate(zip(kill_times_fused, kill_times_count)):
+                tag = " *" if kf != kc else ""
+                print(f"  Kill {i+1:3d}:  video={kf:.3f}s  demo={kf-args.offset:.3f}s"
+                      f"  (ocr={kc:.3f}s, delta={kc-kf:+.3f}s){tag}")
+            out_csv = (args.video.replace(".mp4", "_kill_times_fused.csv")
+                       if args.video.endswith(".mp4") else "kill_times_fused.csv")
+            pd.DataFrame({
+                "kill_n":    range(1, len(kill_times_fused) + 1),
+                "video_s":   kill_times_fused,
+                "demo_s":    kill_times_fused - args.offset,
+                "ocr_video_s": kill_times_count,
+                "refinement_s": kill_times_count - kill_times_fused,
+                "signal":    "fused",
+            }).to_csv(out_csv, index=False)
+            print(f"Saved: {out_csv}")
+            if kill_times_truth is not None:
+                print("\n  Fused validation:")
+                validate_against_demo(kill_times_fused, kill_times_truth, tolerance_s=0.25)
 
         # Signal 1: brightness kill flash (secondary cross-check)
         roi_name = args.roi
