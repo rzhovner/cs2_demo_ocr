@@ -10,7 +10,7 @@ python --version
 pip install demoparser2 pandas
 
 # 3. Run against your demo
-python cs2_engagement_parser.py "path/to/your_demo.dem"
+python src/cs2_engagement_parser.py "path/to/your_demo.dem"
 ```
 
 That's it. The script auto-detects tick rate, identifies the human player, and outputs a CSV.
@@ -62,16 +62,16 @@ The script also prints aggregate KPIs to the console:
 
 ```bash
 # Custom output path
-python cs2_engagement_parser.py demo.dem --output my_results.csv
+python src/cs2_engagement_parser.py demo.dem --output my_results.csv
 
 # Override tick rate (if auto-detect is wrong)
-python cs2_engagement_parser.py demo.dem --tick-rate 128
+python src/cs2_engagement_parser.py demo.dem --tick-rate 128
 
 # Print summary only, no CSV
-python cs2_engagement_parser.py demo.dem --summary-only
+python src/cs2_engagement_parser.py demo.dem --summary-only
 
 # More shot columns (default: 15)
-python cs2_engagement_parser.py demo.dem --max-shots 20
+python src/cs2_engagement_parser.py demo.dem --max-shots 20
 ```
 
 ---

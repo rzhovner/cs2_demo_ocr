@@ -6,6 +6,9 @@
 
 # Parser outputs (regeneratable)
 *_engagements.csv
+
+# Ground truth CSVs are committed (not regeneratable without .dem files)
+!tests/ground_truth/*.csv
 *_with_acquisition.csv
 *_hitrate.png
 *_dossier.html
