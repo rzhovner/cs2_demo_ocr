@@ -28,8 +28,12 @@ outputs/*.mp4
 dbg_*.jpg
 Figure_*.png
 
+# macOS metadata
+.DS_Store
+
 # IDE / tool config
 .claude/
+*.code-workspace
 
 # Data directory (large files)
 data/

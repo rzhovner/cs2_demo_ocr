@@ -2,6 +2,18 @@
 
 ## Current Priorities
 
+### Audio False Positive Reduction
+Audio detection has ~93% precision (10 FP per 100 kills in tapping). Current best approach: confidence thresholding (`conf >= 1.08`). Next steps:
+- Validate confidence threshold across multiple sessions (currently tuned on warmup_20260322_1 only)
+- Explore better visual confirmation signals (larger ROIs, template matching, or reintroducing OCR for bot count reading)
+- Consider multi-signal fusion scoring (weighted audio confidence + visual support)
+
+### Overlay Video Rendering Pipeline
+`render_audio_kills.py` renders detected kills as a scrolling timeline strip with edge glow. Current state is functional. Next steps:
+- Add confidence-based coloring to differentiate high/low confidence kills
+- Add optional demo ground truth overlay (side-by-side comparison when CSV available)
+- Parameterize rendering style (strip height, colors, glow timing)
+
 ### True TTFF via Video Crosshair Tracking
 `acquisition_tracker.py` is a working prototype that detects crosshair acquisition from screen-center pixel motion. Next steps:
 - Validate against more sessions (currently calibrated on training1 only)
@@ -32,7 +44,10 @@ Several detectors have hardcoded `F:\P_rojects\...` paths as defaults:
 These should be converted to CLI arguments (some already accept them) or config-file defaults.
 
 ### Missing Dependencies in requirements.txt
-`pytesseract` is used by `calibrate_rois.py` and `kill_flash_detector.py` but listed as "optional" -- should be documented more clearly or added to an optional extras group.
+`pytesseract` is used by `calibrate_rois.py` and `kill_flash_detector.py` but listed as "optional" -- should be documented more clearly or added to an optional extras group. The primary audio pipeline does not require it.
+
+### ROI Calibration Per-Video
+ROIs in `pixel_diff_detector.py` were calibrated on training1 at 1280x960. The `kill_counter` ROI (0.2773, 0.9427) actually points at the HP display, not a kill counter. ROIs need per-session validation (use `calibrate_rois.py` or manual spot-checks).
 
 ## Future Ideas
 

@@ -1,15 +1,15 @@
 # Kill Detector Guide
 
-Four independent approaches for detecting kills from CS2 AimBotz gameplay recordings. Each uses different signals and has different accuracy/speed tradeoffs. All validate against demo-parser ground truth (`*_engagements.csv`).
+Four independent approaches for detecting kills from CS2 AimBotz gameplay recordings. **Audio is the primary pipeline.** Visual detectors exist for cross-validation but cannot reliably filter individual audio false positives (see `plans/decisions.md`).
 
 ## Detector Comparison
 
-| Detector | Signal(s) | Requires | Speed | Best For |
+| Detector | Signal(s) | Requires | Speed | Status |
 |---|---|---|---|---|
-| `audio_kill_detector.py` | Audio RMS energy peaks | ffmpeg | <1s per minute of video | Fast, reliable first pass |
-| `kill_flash_detector.py` | Brightness + frame delta + OCR | OpenCV, Tesseract | Slow (frame-by-frame + OCR) | Highest accuracy with OCR confirmation |
-| `killfeed_detector.py` | Kill feed red pixels + shift delta | OpenCV | Medium (frame-by-frame) | No OCR dependency |
-| `pixel_diff_detector.py` | Kill counter brightness + bot-count delta | OpenCV | Medium (frame-by-frame) | No OCR, no Tesseract |
+| `audio_kill_detector.py` | Audio RMS energy peaks | ffmpeg, scipy | <1s per minute | **PRIMARY** — use this first |
+| `kill_flash_detector.py` | Brightness + frame delta + OCR | OpenCV, Tesseract | Slow (frame-by-frame + OCR) | Legacy — OCR dependency |
+| `killfeed_detector.py` | Kill feed red pixels + shift delta | OpenCV | Medium (frame-by-frame) | Secondary — weak in fast-kill sessions |
+| `pixel_diff_detector.py` | Kill counter brightness + bot-count delta | OpenCV | Medium (frame-by-frame) | Secondary — noisy at 22x16px ROI |
 
 ## Audio Kill Detector
 
@@ -23,10 +23,31 @@ Kills produce distinctively loud audio events (shot impact + death sound). Short
 - Quiet kills embedded in spray bursts may be missed (energy indistinguishable from non-lethal shots)
 
 ```bash
-python src/audio_kill_detector.py video.mp4
-python src/audio_kill_detector.py video.mp4 --validate engagements.csv
-python src/audio_kill_detector.py video.mp4 --session-type spray
+# Detect kills
+python3 src/audio_kill_detector.py video.mp4 --out kills.csv
+
+# Detect + validate against demo ground truth
+python3 src/audio_kill_detector.py video.mp4 --validate engagements.csv
+
+# Force session type (default: auto-detect)
+python3 src/audio_kill_detector.py video.mp4 --session-type spray
 ```
+
+### Rendering Overlay Video
+
+```bash
+# Render overlay (timeline strip, kill markers, edge glow)
+python3 src/render_audio_kills.py --video video.mp4 --kills kills.csv --duration 0 --out overlay.mp4
+
+# Mux original game audio back in
+ffmpeg -y -i overlay.mp4 -i video.mp4 -c:v copy -map 0:v -map 1:a -shortest final.mp4
+```
+
+### Known Limitations
+
+- **~93% precision on tapping sessions**: ~10 false positives per 100 kills. These are loud non-lethal audio events indistinguishable from kill sounds by energy alone.
+- **Confidence thresholding**: `confidence >= 1.08` (energy/threshold ratio) effectively trims false positives for standard 100-bot challenges. The 10 lowest-confidence detections are most likely false.
+- **Visual fusion does not help**: Bot-count pixel delta, killfeed red%, kill counter brightness, and center icon brightness were all tested for per-event false positive filtering — none had sufficient discriminating power (see `plans/decisions.md`).
 
 ## Kill Flash Detector (Three-Signal)
 
@@ -82,3 +103,11 @@ All detectors share a validation workflow:
 4. Generate report with timing error histograms
 
 Ground truth comes from `cs2_engagement_parser.py` output. The `engagement_start_s` column provides the canonical kill timestamp from the demo file.
+
+## Rendering Tools
+
+| Script | Input | Output | Description |
+|---|---|---|---|
+| `render_audio_kills.py` | video + audio kills CSV | overlay .mp4 | Timeline strip, kill markers, edge glow, kill count |
+| `render_kill_overlay.py` | video + OCR kill data | overlay .mp4 | Bot-count timeline (legacy, requires OCR data) |
+| `render_audio_accuracy.py` | video + audio kills + ground truth | overlay .mp4 | Accuracy comparison overlay |
