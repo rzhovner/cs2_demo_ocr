@@ -43,3 +43,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Benchmark patch images (large, regeneratable from video + characterize_bot_count.py)
+outputs/*_benchmark_patches/

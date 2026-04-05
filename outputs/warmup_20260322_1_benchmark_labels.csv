@@ -1,0 +1,101 @@
+frame_n,time_s,patch_path,agent_label,agent_confidence,agent_notes
+0,0.0,outputs/warmup_20260322_1_benchmark_patches/patch_000_f000000_t0.00s.png,12.0,high,
+42,0.6998,outputs/warmup_20260322_1_benchmark_patches/patch_001_f000042_t0.70s.png,12.0,high,
+85,1.4163,outputs/warmup_20260322_1_benchmark_patches/patch_002_f000085_t1.42s.png,12.0,high,
+127,2.1162,outputs/warmup_20260322_1_benchmark_patches/patch_003_f000127_t2.12s.png,12.0,high,
+170,2.8326,outputs/warmup_20260322_1_benchmark_patches/patch_004_f000170_t2.83s.png,11.0,high,icon visible left
+212,3.5325,outputs/warmup_20260322_1_benchmark_patches/patch_005_f000212_t3.53s.png,10.0,high,
+254,4.2323,outputs/warmup_20260322_1_benchmark_patches/patch_006_f000254_t4.23s.png,9.0,medium,"icon left, digit partially obscured"
+297,4.9488,outputs/warmup_20260322_1_benchmark_patches/patch_007_f000297_t4.95s.png,11.0,high,icon visible left
+339,5.6486,outputs/warmup_20260322_1_benchmark_patches/patch_008_f000339_t5.65s.png,10.0,high,
+382,6.3651,outputs/warmup_20260322_1_benchmark_patches/patch_009_f000382_t6.37s.png,9.0,medium,icon left
+424,7.065,outputs/warmup_20260322_1_benchmark_patches/patch_010_f000424_t7.06s.png,10.0,medium,"transition frame, diagonal color artifact"
+466,7.7648,outputs/warmup_20260322_1_benchmark_patches/patch_011_f000466_t7.76s.png,11.0,high,icon visible left
+509,8.4813,outputs/warmup_20260322_1_benchmark_patches/patch_012_f000509_t8.48s.png,10.0,high,
+551,9.1811,outputs/warmup_20260322_1_benchmark_patches/patch_013_f000551_t9.18s.png,12.0,high,
+594,9.8976,outputs/warmup_20260322_1_benchmark_patches/patch_014_f000594_t9.90s.png,12.0,high,
+636,10.5974,outputs/warmup_20260322_1_benchmark_patches/patch_015_f000636_t10.60s.png,10.0,high,
+678,11.2973,outputs/warmup_20260322_1_benchmark_patches/patch_016_f000678_t11.30s.png,10.0,high,
+721,12.0138,outputs/warmup_20260322_1_benchmark_patches/patch_017_f000721_t12.01s.png,10.0,high,
+763,12.7136,outputs/warmup_20260322_1_benchmark_patches/patch_018_f000763_t12.71s.png,11.0,high,icon visible left
+805,13.4134,outputs/warmup_20260322_1_benchmark_patches/patch_019_f000805_t13.41s.png,11.0,high,icon visible left
+848,14.1299,outputs/warmup_20260322_1_benchmark_patches/patch_020_f000848_t14.13s.png,11.0,high,icon visible left
+890,14.8297,outputs/warmup_20260322_1_benchmark_patches/patch_021_f000890_t14.83s.png,9.0,medium,icon left
+933,15.5462,outputs/warmup_20260322_1_benchmark_patches/patch_022_f000933_t15.55s.png,10.0,high,
+975,16.2461,outputs/warmup_20260322_1_benchmark_patches/patch_023_f000975_t16.25s.png,12.0,high,
+1017,16.9459,outputs/warmup_20260322_1_benchmark_patches/patch_024_f001017_t16.95s.png,11.0,high,"icon visible left, bright artifact"
+1060,17.6624,outputs/warmup_20260322_1_benchmark_patches/patch_025_f001060_t17.66s.png,10.0,high,human-labeled
+1102,18.3622,outputs/warmup_20260322_1_benchmark_patches/patch_026_f001102_t18.36s.png,11.0,high,human-labeled
+1145,19.0787,outputs/warmup_20260322_1_benchmark_patches/patch_027_f001145_t19.08s.png,11.0,high,human-labeled
+1187,19.7785,outputs/warmup_20260322_1_benchmark_patches/patch_028_f001187_t19.78s.png,10.0,high,human-labeled
+1229,20.4784,outputs/warmup_20260322_1_benchmark_patches/patch_029_f001229_t20.48s.png,10.0,high,human-labeled
+1272,21.1949,outputs/warmup_20260322_1_benchmark_patches/patch_030_f001272_t21.19s.png,10.0,high,human-labeled
+1314,21.8947,outputs/warmup_20260322_1_benchmark_patches/patch_031_f001314_t21.89s.png,9.0,high,human-labeled
+1357,22.6112,outputs/warmup_20260322_1_benchmark_patches/patch_032_f001357_t22.61s.png,8.0,high,human-labeled
+1399,23.311,outputs/warmup_20260322_1_benchmark_patches/patch_033_f001399_t23.31s.png,10.0,high,human-labeled
+1441,24.0108,outputs/warmup_20260322_1_benchmark_patches/patch_034_f001441_t24.01s.png,12.0,high,human-labeled
+1484,24.7273,outputs/warmup_20260322_1_benchmark_patches/patch_035_f001484_t24.73s.png,10.0,high,human-labeled
+1526,25.4272,outputs/warmup_20260322_1_benchmark_patches/patch_036_f001526_t25.43s.png,9.0,high,human-labeled
+1569,26.1437,outputs/warmup_20260322_1_benchmark_patches/patch_037_f001569_t26.14s.png,9.0,high,human-labeled
+1611,26.8435,outputs/warmup_20260322_1_benchmark_patches/patch_038_f001611_t26.84s.png,10.0,high,human-labeled
+1653,27.5433,outputs/warmup_20260322_1_benchmark_patches/patch_039_f001653_t27.54s.png,11.0,high,human-labeled
+1696,28.2598,outputs/warmup_20260322_1_benchmark_patches/patch_040_f001696_t28.26s.png,10.0,high,human-labeled
+1738,28.9596,outputs/warmup_20260322_1_benchmark_patches/patch_041_f001738_t28.96s.png,10.0,high,human-labeled
+1781,29.6761,outputs/warmup_20260322_1_benchmark_patches/patch_042_f001781_t29.68s.png,10.0,high,human-labeled
+1823,30.376,outputs/warmup_20260322_1_benchmark_patches/patch_043_f001823_t30.38s.png,11.0,high,human-labeled
+1865,31.0758,outputs/warmup_20260322_1_benchmark_patches/patch_044_f001865_t31.08s.png,11.0,high,human-labeled
+1908,31.7923,outputs/warmup_20260322_1_benchmark_patches/patch_045_f001908_t31.79s.png,10.0,high,human-labeled
+1950,32.4921,outputs/warmup_20260322_1_benchmark_patches/patch_046_f001950_t32.49s.png,11.0,high,human-labeled
+1993,33.2086,outputs/warmup_20260322_1_benchmark_patches/patch_047_f001993_t33.21s.png,10.0,high,human-labeled
+2035,33.9084,outputs/warmup_20260322_1_benchmark_patches/patch_048_f002035_t33.91s.png,9.0,high,human-labeled
+2077,34.6083,outputs/warmup_20260322_1_benchmark_patches/patch_049_f002077_t34.61s.png,10.0,high,human-labeled
+2120,35.3248,outputs/warmup_20260322_1_benchmark_patches/patch_050_f002120_t35.32s.png,10.0,high,human-labeled
+2162,36.0246,outputs/warmup_20260322_1_benchmark_patches/patch_051_f002162_t36.02s.png,11.0,high,human-labeled
+2204,36.7244,outputs/warmup_20260322_1_benchmark_patches/patch_052_f002204_t36.72s.png,10.0,high,human-labeled
+2247,37.4409,outputs/warmup_20260322_1_benchmark_patches/patch_053_f002247_t37.44s.png,10.0,high,human-labeled
+2289,38.1408,outputs/warmup_20260322_1_benchmark_patches/patch_054_f002289_t38.14s.png,11.0,high,human-labeled
+2332,38.8572,outputs/warmup_20260322_1_benchmark_patches/patch_055_f002332_t38.86s.png,10.0,high,human-labeled
+2374,39.5571,outputs/warmup_20260322_1_benchmark_patches/patch_056_f002374_t39.56s.png,11.0,high,human-labeled
+2416,40.2569,outputs/warmup_20260322_1_benchmark_patches/patch_057_f002416_t40.26s.png,11.0,high,human-labeled
+2459,40.9734,outputs/warmup_20260322_1_benchmark_patches/patch_058_f002459_t40.97s.png,9.0,high,human-labeled
+2501,41.6732,outputs/warmup_20260322_1_benchmark_patches/patch_059_f002501_t41.67s.png,11.0,high,human-labeled
+2544,42.3897,outputs/warmup_20260322_1_benchmark_patches/patch_060_f002544_t42.39s.png,10.0,high,human-labeled
+2586,43.0896,outputs/warmup_20260322_1_benchmark_patches/patch_061_f002586_t43.09s.png,9.0,high,human-labeled
+2628,43.7894,outputs/warmup_20260322_1_benchmark_patches/patch_062_f002628_t43.79s.png,10.0,high,human-labeled
+2671,44.5059,outputs/warmup_20260322_1_benchmark_patches/patch_063_f002671_t44.51s.png,10.0,high,human-labeled
+2713,45.2057,outputs/warmup_20260322_1_benchmark_patches/patch_064_f002713_t45.21s.png,11.0,high,human-labeled
+2756,45.9222,outputs/warmup_20260322_1_benchmark_patches/patch_065_f002756_t45.92s.png,10.0,high,human-labeled
+2798,46.622,outputs/warmup_20260322_1_benchmark_patches/patch_066_f002798_t46.62s.png,10.0,high,human-labeled
+2840,47.3219,outputs/warmup_20260322_1_benchmark_patches/patch_067_f002840_t47.32s.png,11.0,high,human-labeled
+2883,48.0384,outputs/warmup_20260322_1_benchmark_patches/patch_068_f002883_t48.04s.png,11.0,high,human-labeled
+2925,48.7382,outputs/warmup_20260322_1_benchmark_patches/patch_069_f002925_t48.74s.png,9.0,high,human-labeled
+2968,49.4547,outputs/warmup_20260322_1_benchmark_patches/patch_070_f002968_t49.45s.png,10.0,high,human-labeled
+3010,50.1545,outputs/warmup_20260322_1_benchmark_patches/patch_071_f003010_t50.15s.png,10.0,high,human-labeled
+3052,50.8543,outputs/warmup_20260322_1_benchmark_patches/patch_072_f003052_t50.85s.png,10.0,high,human-labeled
+3095,51.5708,outputs/warmup_20260322_1_benchmark_patches/patch_073_f003095_t51.57s.png,10.0,high,human-labeled
+3137,52.2707,outputs/warmup_20260322_1_benchmark_patches/patch_074_f003137_t52.27s.png,11.0,high,human-labeled
+3180,52.9872,outputs/warmup_20260322_1_benchmark_patches/patch_075_f003180_t52.99s.png,10.0,high,human-labeled
+3222,53.687,outputs/warmup_20260322_1_benchmark_patches/patch_076_f003222_t53.69s.png,10.0,high,human-labeled
+3264,54.3868,outputs/warmup_20260322_1_benchmark_patches/patch_077_f003264_t54.39s.png,11.0,high,human-labeled
+3307,55.1033,outputs/warmup_20260322_1_benchmark_patches/patch_078_f003307_t55.10s.png,11.0,high,human-labeled
+3349,55.8031,outputs/warmup_20260322_1_benchmark_patches/patch_079_f003349_t55.80s.png,10.0,high,human-labeled
+3392,56.5196,outputs/warmup_20260322_1_benchmark_patches/patch_080_f003392_t56.52s.png,10.0,high,human-labeled
+3434,57.2195,outputs/warmup_20260322_1_benchmark_patches/patch_081_f003434_t57.22s.png,10.0,high,human-labeled
+3476,57.9193,outputs/warmup_20260322_1_benchmark_patches/patch_082_f003476_t57.92s.png,9.0,high,human-labeled
+3519,58.6358,outputs/warmup_20260322_1_benchmark_patches/patch_083_f003519_t58.64s.png,11.0,high,human-labeled
+3561,59.3356,outputs/warmup_20260322_1_benchmark_patches/patch_084_f003561_t59.34s.png,10.0,high,human-labeled
+3603,60.0354,outputs/warmup_20260322_1_benchmark_patches/patch_085_f003603_t60.04s.png,10.0,high,human-labeled
+3646,60.7519,outputs/warmup_20260322_1_benchmark_patches/patch_086_f003646_t60.75s.png,9.0,high,human-labeled
+3688,61.4518,outputs/warmup_20260322_1_benchmark_patches/patch_087_f003688_t61.45s.png,10.0,high,human-labeled
+3731,62.1683,outputs/warmup_20260322_1_benchmark_patches/patch_088_f003731_t62.17s.png,9.0,high,human-labeled
+3773,62.8681,outputs/warmup_20260322_1_benchmark_patches/patch_089_f003773_t62.87s.png,10.0,high,human-labeled
+3815,63.5679,outputs/warmup_20260322_1_benchmark_patches/patch_090_f003815_t63.57s.png,9.0,high,human-labeled
+3858,64.2844,outputs/warmup_20260322_1_benchmark_patches/patch_091_f003858_t64.28s.png,11.0,high,human-labeled
+3900,64.9842,outputs/warmup_20260322_1_benchmark_patches/patch_092_f003900_t64.98s.png,11.0,high,human-labeled
+3943,65.7007,outputs/warmup_20260322_1_benchmark_patches/patch_093_f003943_t65.70s.png,10.0,high,human-labeled
+3985,66.4006,outputs/warmup_20260322_1_benchmark_patches/patch_094_f003985_t66.40s.png,10.0,high,human-labeled
+4027,67.1004,outputs/warmup_20260322_1_benchmark_patches/patch_095_f004027_t67.10s.png,11.0,high,human-labeled
+4070,67.8169,outputs/warmup_20260322_1_benchmark_patches/patch_096_f004070_t67.82s.png,11.0,high,human-labeled
+4112,68.5167,outputs/warmup_20260322_1_benchmark_patches/patch_097_f004112_t68.52s.png,12.0,high,human-labeled
+4155,69.2332,outputs/warmup_20260322_1_benchmark_patches/patch_098_f004155_t69.23s.png,12.0,high,human-labeled
+4197,69.933,outputs/warmup_20260322_1_benchmark_patches/patch_099_f004197_t69.93s.png,12.0,high,human-labeled
